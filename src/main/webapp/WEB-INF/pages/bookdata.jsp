@@ -45,6 +45,7 @@
 
 </head>
 <body>
+<a href="../../index.jsp">Back to main menu</a>
 <h1>Book Details</h1>
 
 <table class="tg">
@@ -60,7 +61,7 @@
     <td>${book.bookTitle}</td>
     <td>${book.bookAuthor}</td>
     <td>${book.price/100}${book.price%100}</td>
-    <td><a href="/order" target="_blank">Buy now</a></td>
+    <td><a href="/orders" target="_blank">Buy now</a></td>
   </tr>
 </table>
 </body>

@@ -2,12 +2,11 @@ package com.cross.bookmanager.service;
 
 import com.cross.bookmanager.dao.OrderDao;
 import com.cross.bookmanager.model.Order;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-/**
- * Created by Cross on 10.07.2017.
- */
+@Service
 public class OrderServiceImpl implements OrderService {
 
     private OrderDao orderDao;

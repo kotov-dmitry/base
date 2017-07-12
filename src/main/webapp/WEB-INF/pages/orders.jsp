@@ -3,7 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
@@ -44,9 +43,10 @@
     </style>
 </head>
 <body>
+
 <h1>Add a Order</h1>
 
-<c:url var="addAction" value="/order/add"/>
+<c:url var="addAction" value="/orders/add"/>
 
 <form:form action="${addAction}" commandName="order">
     <table>
@@ -101,9 +101,9 @@
             </td>
         </tr>
         <tr>
-            <td colspan="1">
+            <td colspan="2">
                 <input type="submit"
-                           value="<spring:message text="Add Order"/>"/>
+                       value="<spring:message text="Add Order"/>"/>
             </td>
         </tr>
     </table>

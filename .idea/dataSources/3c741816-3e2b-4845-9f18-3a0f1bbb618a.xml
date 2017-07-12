@@ -12,7 +12,7 @@
     <schema id="6" parent="1" name="performance_schema"/>
     <schema id="7" parent="1" name="test"/>
     <table id="8" parent="2" name="book"/>
-    <table id="9" parent="2" name="order"/>
+    <table id="9" parent="2" name="orders"/>
     <column id="10" parent="8" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
@@ -70,10 +70,19 @@
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="21" parent="9" name="PRIMARY">
+    <index id="21" parent="9" name="BOOK_ID_idx">
+      <ColNames>BOOK_ID</ColNames>
+    </index>
+    <key id="22" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="23" parent="9" name="BOOK_ID">
+      <ColNames>BOOK_ID</ColNames>
+      <RefSchemaName>bookstore</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

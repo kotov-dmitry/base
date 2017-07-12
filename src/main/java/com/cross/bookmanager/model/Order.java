@@ -3,11 +3,11 @@ package com.cross.bookmanager.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="ORDER")
+@Table(name ="ORDERS")
 public class Order {
     @Id
     @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "BOOK_ID")
@@ -81,6 +81,7 @@ public class Order {
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

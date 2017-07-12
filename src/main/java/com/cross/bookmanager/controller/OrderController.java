@@ -19,15 +19,16 @@ public class OrderController {
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
     }
-    @RequestMapping(value = "/order/add", method = RequestMethod.POST)
-    public void addOrder(@ModelAttribute("order") Order order){
+    @RequestMapping(value = "/orders/add", method = RequestMethod.POST)
+    public String addOrder(@ModelAttribute("order") Order order){
         if(order.getId()== 0){
             this.orderService.addOrder(order);
         }
+        return "redirect:/orders";
     }
-    @RequestMapping(value = "order", method = RequestMethod.GET)
+    @RequestMapping(value = "orders", method = RequestMethod.GET)
     public String order(Model model){
         model.addAttribute("order", new Order());
-        return "order";
+        return "orders";
     }
 }

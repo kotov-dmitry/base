@@ -5,7 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrderDaoImpl implements OrderDao {
     private static final Logger logger = LoggerFactory.getLogger(OrderDaoImpl.class);
 
@@ -19,6 +21,6 @@ public class OrderDaoImpl implements OrderDao {
     public void addOrder(Order order) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(order);
-        logger.info("Book successfully saved. Book details: " + order);
+        logger.info("Order successfully saved. Order details: " + order);
     }
 }
