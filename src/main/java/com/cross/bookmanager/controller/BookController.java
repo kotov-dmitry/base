@@ -29,20 +29,38 @@ public class BookController {
         return "books";
     }
 
-    @RequestMapping(value = "/books/add", method = RequestMethod.POST)
+    @RequestMapping(value =  "admin", method = RequestMethod.GET)
+    public String listBook(Model model){
+        model.addAttribute("book", new Book());
+        model.addAttribute("listBooks", this.bookService.listBooks());
+
+        return "admin";
+    }
+
+    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
     public String addBook(@ModelAttribute("book") Book book){
         if(book.getId() == 0){
             this.bookService.addBook(book);
+        }else{
+            this.bookService.updateBook(book);
         }
 
-        return "redirect:/books";
+        return "redirect:/admin";
     }
 
     @RequestMapping("/remove/{id}")
     public String removeBook(@PathVariable("id") int id){
         this.bookService.removeBook(id);
 
-        return "redirect:/books";
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("edit/{id}")
+    public String editBook(@PathVariable("id") int id, Model model){
+        model.addAttribute("book", this.bookService.getBookById(id));
+        model.addAttribute("listBooks", this.bookService.listBooks());
+
+        return "admin";
     }
 
     @RequestMapping("bookdata/{id}")
@@ -50,5 +68,11 @@ public class BookController {
         model.addAttribute("book", this.bookService.getBookById(id));
 
         return "bookdata";
+    }
+
+    @RequestMapping(value = "/books/add/{id}", method = RequestMethod.POST)
+    public String addBookCart(Model model, @PathVariable("id") int id){
+        model.addAttribute("book",this.bookService.getBookById(id));
+        return "redirect:/books";
     }
 }

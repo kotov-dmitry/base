@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="/welcome">Back to main menu</a>
 
 <br/>
 <br/>
@@ -57,6 +57,7 @@
             <th width="120">Title</th>
             <th width="120">Author</th>
             <th width="120">Price</th>
+            <th width="120">Cart</th>
         </tr>
         <c:forEach items="${listBooks}" var="book">
             <tr>
@@ -64,9 +65,11 @@
                 <td><a href="/bookdata/${book.id}" target="_blank">${book.bookTitle}</a></td>
                 <td>${book.bookAuthor}</td>
                 <td>${book.price/100}${book.price%100}</td>
+                <td><a href="<c:url value='/addOrder/${book.id}'/>">Add to cart</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
+<h2>Cart</h2>
 </body>
 </html>

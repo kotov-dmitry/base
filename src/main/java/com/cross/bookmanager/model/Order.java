@@ -5,6 +5,10 @@ import javax.persistence.*;
 @Entity
 @Table(name ="ORDERS")
 public class Order {
+
+    public Order(int id){
+        this.bookId =id;
+    }
     @Id
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
