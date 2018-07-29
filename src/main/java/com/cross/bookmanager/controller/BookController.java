@@ -1,11 +1,8 @@
 package com.cross.bookmanager.controller;
 
 import com.cross.bookmanager.model.Book;
-import com.cross.bookmanager.model.Cart;
 import com.cross.bookmanager.service.BookService;
-import com.cross.bookmanager.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +15,6 @@ public class BookController {
     private BookService bookService;
 
     @Autowired(required = true)
-    @Qualifier(value = "bookService")
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
     }

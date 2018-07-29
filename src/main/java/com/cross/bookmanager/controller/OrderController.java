@@ -3,7 +3,6 @@ package com.cross.bookmanager.controller;
 import com.cross.bookmanager.model.Order;
 import com.cross.bookmanager.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +15,6 @@ public class OrderController {
     private OrderService orderService;
 
     @Autowired(required = true)
-    @Qualifier(value = "orderService")
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
     }

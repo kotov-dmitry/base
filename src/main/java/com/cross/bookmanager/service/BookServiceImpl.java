@@ -1,16 +1,18 @@
 package com.cross.bookmanager.service;
 
-import com.cross.bookmanager.model.Book;
 import com.cross.bookmanager.dao.BookDao;
+import com.cross.bookmanager.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service("bookService")
 public class BookServiceImpl implements BookService {
     private BookDao bookDao;
 
+    @Autowired
     public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }

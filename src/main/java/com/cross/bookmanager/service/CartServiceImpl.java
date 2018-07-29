@@ -31,7 +31,4 @@ public class CartServiceImpl implements CartService {
     public void removeOrderCart(int id) {
         this.cartDao.removeOrderCart(id);
     }
-
-    public void setCartDao(com.cross.bookmanager.dao.CartDaoImpl cartDao) {
-    }
 }
