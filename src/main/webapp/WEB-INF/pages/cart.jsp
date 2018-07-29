@@ -3,9 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Books Page</title>
+    <title>My Cart</title>
     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     <style type="text/css">
         .tg {
@@ -43,33 +44,28 @@
     </style>
 </head>
 <body>
-<a href="/welcome">Back to main menu</a>
-
-<br/>
-<br/>
-
-<h1>Book List</h1>
-<h1>${pageContext.request.userPrincipal.name}</h1>
-<c:if test="${!empty listBooks}">
+<c:if test="${!empty cartList}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
+            <th width="120">Username</th>
+            <th width="120">Book ID</th>
+            <th width="120">Price</th>
             <th width="120">Title</th>
             <th width="120">Author</th>
-            <th width="120">Price</th>
-            <th width="120">Cart</th>
         </tr>
-        <c:forEach items="${listBooks}" var="book">
+        <c:forEach items="${cartList}" var="cart">
             <tr>
-                <td>${book.id}</td>
-                <td><a href="/bookdata/${book.id}" target="_blank">${book.bookTitle}</a></td>
-                <td>${book.bookAuthor}</td>
-                <td>${book.price/100}${book.price%100}</td>
-                <td><a href="<c:url value='/addOrderInCart/${book.id}/${pageContext.request.userPrincipal.name}'/>">Add to cart</a></td>
+                <td>${cart.id}</td>
+                <td>${cart.username}</td>
+                <td>${cart.book_id}</td>
+                <td>${cart.book.price/100}${cart.book.price%100}</td>
+                <td>${cart.book.bookTitle}</td>
+                <td>${cart.book.bookAuthor}</td>
+                <td><a href="<c:url value='/removeOrderCart/${cart.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
-<a href="/cart">Go to Cart</a>
 </body>
 </html>

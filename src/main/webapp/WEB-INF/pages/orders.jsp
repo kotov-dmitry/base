@@ -5,7 +5,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Order</title>
 
     <style type="text/css">
         .tg {
@@ -93,11 +93,12 @@
         <tr>
             <td>
                 <form:label path="bookId">
-                    <spring:message text="Book id"/>
+                    <spring:message text="ID"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="bookId"/>
+                <form:input path="bookId" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="bookId"/>
             </td>
         </tr>
         <tr>

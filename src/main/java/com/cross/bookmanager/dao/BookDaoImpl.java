@@ -58,4 +58,11 @@ public class BookDaoImpl implements BookDao {
 
         return bookList;
     }
+
+    @Override
+    public void updateBook(Book book){
+        Session session =this.sessionFactory.getCurrentSession();
+        session.update(book);
+        logger.info("Book successfully update. Book details: " + book);
+    }
 }

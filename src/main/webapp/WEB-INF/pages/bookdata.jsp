@@ -42,11 +42,12 @@
       background-color: #f0f0f0;
     }
   </style>
-
+  <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="/welcome">Back to main menu</a>
 <h1>Book Details</h1>
+
 
 <table class="tg">
   <tr>
@@ -61,7 +62,8 @@
     <td>${book.bookTitle}</td>
     <td>${book.bookAuthor}</td>
     <td>${book.price/100}${book.price%100}</td>
-    <td><a href="/orders" target="_blank">Buy now</a></td>
+
+    <td><a href="/orders/${book.id}" target="_blank">Buy now</a></td>
   </tr>
 </table>
 </body>

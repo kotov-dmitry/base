@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,14 +22,15 @@ public class OrderController {
     }
     @RequestMapping(value = "/orders/add", method = RequestMethod.POST)
     public String addOrder(@ModelAttribute("order") Order order){
+
         if(order.getId()== 0){
             this.orderService.addOrder(order);
         }
         return "redirect:/orders";
     }
-    @RequestMapping(value = "orders", method = RequestMethod.GET)
-    public String order(Model model){
-        model.addAttribute("order", new Order());
+    @RequestMapping(value = "orders/{id}", method = RequestMethod.GET)
+    public String order(Model model,@PathVariable("id") int id){
+        model.addAttribute("order", new Order(id));
         return "orders";
     }
 }

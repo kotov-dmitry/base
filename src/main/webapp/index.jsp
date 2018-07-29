@@ -8,6 +8,7 @@
 <h3>Welcome!</h3>
 <br/>
 <a href="<c:url value="/books"/>" target="_blank">View the list of books</a>
+<a href="<c:url value="/books"/>" target="_blank">Admin page </a>
 <br/>
 </body>
 </html>
